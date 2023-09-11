@@ -35,7 +35,7 @@ jobs:
         with:
           node-version: "16"
       - name: Install dependencies
-        run: yarn build
+        run: yarn install
       - name: Build App
         run: yarn build
       - name: Build with Jekyll
