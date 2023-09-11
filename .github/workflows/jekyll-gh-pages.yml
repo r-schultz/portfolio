@@ -21,6 +21,9 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
+env:
+  PUBLIC_URL: '/portfolio'
+
 jobs:
   # Build job
   build:
