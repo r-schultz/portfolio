@@ -1,0 +1,13 @@
+
+
+.project-info {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 1s ease-in;
+
+  padding: 10px;
+
+  &.active {
+    max-height: 400px;
+  }
+}

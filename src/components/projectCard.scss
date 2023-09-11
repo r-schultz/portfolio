@@ -1,0 +1,16 @@
+.project-item-container {
+  list-style-type: none;
+}
+
+.project-item {
+  background-color: #e7dff6;
+  border-radius: 4px;
+  box-shadow: -2px 4px #000000;
+  cursor: pointer;
+  padding: 4px;
+  
+  img {
+    max-width: 290px;
+    border: 1px solid #cdcdcd;
+  }
+}
