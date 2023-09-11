@@ -1,5 +1,5 @@
-import { Controller, animated, easings, useSpring } from '@react-spring/web';
-import { createRef, useMemo } from 'react';
+import { animated, easings, useSpring } from '@react-spring/web';
+import { useMemo } from 'react';
 import useWindowDimensions from '../hooks/useWindowDimensions';
 import './projectCard.scss';
 
@@ -12,13 +12,11 @@ export interface Project {
   title: string;
   description: string;
   imageSrc?: string;
+  imageAlt?: string;
 }
 
 export function ProjectCard({index, project, setActiveProject}:
   {index: number, project: Project, setActiveProject: (project: Project) => void}) {
-
-  const isBouncing = createRef();
-  const bounceAnimation = new Controller({ opacity: 0 })
 
   const { width } = useWindowDimensions();
   const { itemsPerRow, xPos, yPos } = useMemo(() => {
@@ -94,7 +92,7 @@ export function ProjectCard({index, project, setActiveProject}:
         ...bounceSpring
       }}>
         <h2>{project.title}</h2>
-        <img src={project.imageSrc} />
+        <img src={project.imageSrc} alt={project.imageAlt} />
       </animated.div>
     </animated.li>
   );
