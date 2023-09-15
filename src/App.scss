@@ -1,7 +1,16 @@
-.App {
-  text-align: center;
+.main-content {
+  display: flex;
+  z-index: 0;
+
+  nav {
+    max-width: 200px;
+  }
+
+  div {
+    flex-grow: 1;
+  }
 }
 
 .project-list {
-  display: flex;
+  width: 100%;
 }

@@ -1,56 +1,41 @@
 import { animated, easings, useSpring } from '@react-spring/web';
-import { useMemo } from 'react';
+import { forwardRef, useMemo } from 'react';
 import useWindowDimensions from '../hooks/useWindowDimensions';
-import './projectCard.scss';
+import './ProjectCard.scss';
 
-const LR_PADDING = 20;
-const CARD_DIMENSIONS = { WIDTH: 300, HEIGHT: 350, PADDING: 10 };
-const ROTATION_MAX_DEG = 8;
+const CARD_DIMENSIONS = { WIDTH: 200, HEIGHT: 150, PADDING: 10 };
+const ROTATION_MAX_DEG = 10;
 
 export interface Project {
-  id: number,
+  id: number;
   title: string;
   description: string;
   imageSrc?: string;
   imageAlt?: string;
+  active: boolean;
 }
 
-export function ProjectCard({index, project, setActiveProject}:
-  {index: number, project: Project, setActiveProject: (project: Project) => void}) {
+interface Props {
+  index: number;
+  project: Project;
+  setActiveProject: (project: Project) => void;
+}
 
+const ProjectCard = forwardRef<JSX.IntrinsicElements['li'], Props>(function({index, project, setActiveProject}, ref) {
   const { width } = useWindowDimensions();
-  const { itemsPerRow, xPos, yPos } = useMemo(() => {
-    let maxItemsPerRow = 1;
-    let availableWidth = width - (LR_PADDING * 2) - CARD_DIMENSIONS.WIDTH;
-    let cardWithPadding = CARD_DIMENSIONS.WIDTH + CARD_DIMENSIONS.PADDING;
-    while (availableWidth >= 0) {
-      if (availableWidth - cardWithPadding >= 0) {
-        maxItemsPerRow += 1;
-        availableWidth -= cardWithPadding;
-      } else {
-        break;
-      }
-    }
-
-    return {
-      xPos: index % maxItemsPerRow,
-      yPos: Math.floor(index / maxItemsPerRow),
-      itemsPerRow: maxItemsPerRow
-    }
-  }, [width, index]);
-  const rotation = xPos % ROTATION_MAX_DEG;
+  const rotation = index % ROTATION_MAX_DEG;
 
   const layoutSpring = useSpring({
-    delay: 700,
+    delay: 1000,
     duration: 500,
     from: {
-      x: 10,
-      y: 10,
+      x: Math.random() * width,
+      y: Math.random() * 50 + 10,
       rotate: (index % 2 === 0 ? -rotation : rotation)
     },
     to: {
-      x: LR_PADDING + (CARD_DIMENSIONS.WIDTH * xPos) + (xPos % itemsPerRow ? (CARD_DIMENSIONS.PADDING * xPos) : 0),
-      y: CARD_DIMENSIONS.HEIGHT * yPos,
+      x: 0,
+      y: (CARD_DIMENSIONS.HEIGHT * index) + (index > 0 ? 5 * index : 0),
       rotate: 0
     },
     config: {
@@ -61,20 +46,20 @@ export function ProjectCard({index, project, setActiveProject}:
   const [bounceSpring, api] = useSpring(() => ({
     loop: true,
     duration: 200,
-    pause: true,
+    pause: !project.active,
     from: {
       x: 0,
       y: 0,
     },
     to: async (next, cancel) => {
-      await next({ y: 4 });
-      await next({ y: 0 });
+      await next({ x: 6 });
+      await next({ x: 0 });
     },
     config: {
-      easing: easings.easeInElastic,
+      easing: easings.easeInBounce,
       bounce: 100,
     }
-  }), []);
+  }), [project.active]);
 
   return (
     <animated.li className={'project-item-container'} style={{
@@ -84,16 +69,17 @@ export function ProjectCard({index, project, setActiveProject}:
         ...layoutSpring,
       }}
       onClick={() => {
+        setActiveProject(project);
         api.resume();
-        setActiveProject(project)
       }}>
       <animated.div className={'project-item'} style={{
         position: 'relative',
         ...bounceSpring
       }}>
-        <h2>{project.title}</h2>
         <img src={project.imageSrc} alt={project.imageAlt} />
       </animated.div>
     </animated.li>
   );
-}
+});
+
+export { ProjectCard };

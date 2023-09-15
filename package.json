@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "@react-spring/web": "^9.7.3",
+    "@types/lodash": "^4.14.198",
+    "lodash": "lodash/lodash",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "web-vitals": "^2.1.4"

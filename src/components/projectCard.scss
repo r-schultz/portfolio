@@ -5,12 +5,12 @@
 .project-item {
   background-color: #e7dff6;
   border-radius: 4px;
-  box-shadow: -2px 4px #000000;
+  box-shadow: 2px 0 6px 3px #b0b0b0;
   cursor: pointer;
   padding: 4px;
   
   img {
-    max-width: 290px;
+    max-width: 100%;
     border: 1px solid #cdcdcd;
   }
 }
