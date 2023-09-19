@@ -1,0 +1,38 @@
+.about-container {
+  padding: 12px;
+  position: relative;
+  z-index: 1;
+
+  background-color: rgba(44, 33, 71, 0.7);
+  box-shadow: 0 0 20px px rgb(79, 79, 79);
+  color: #f4f4f4;
+}
+
+.contact {
+  margin: 10px 0;
+
+  > * {
+    &:not(:first-child) {
+      margin-left: 4px;
+    }
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.caption {
+  width: 100%;
+  display: flex;
+  align-items: space-between;
+
+  span:nth-child(2) {
+    position: relative;
+    margin-left: 6px;
+    flex-grow: 1;
+    top: .5em;
+    
+    content: "";
+    
+    border-top: 1px solid #f4f4f4;
+  }
+}

@@ -1,0 +1,12 @@
+.project-info {
+  display: none;
+  overflow: hidden;
+  padding: 10px;
+  height: 100vh;
+
+  background-color: #ebebeb;
+
+  &.active {
+    display: block;
+  }
+}
