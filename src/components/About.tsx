@@ -3,15 +3,15 @@ import AppInfo from '../config/app';
 import LinkedInLogo from '../assets/linkedIn.png';
 import GithubLogo from '../assets/github.png';
 
-export default function PortfolioInfo() {
+export default function About() {
   return (
     <section className={'about-container'}>
       <p className={'contact'}>
-        <h5>Ryan Schultz</h5>
-        <a href={AppInfo.linkedIn} rel="noopener" target="_blank">
+        <span>Ryan Schultz</span>
+        <a href={AppInfo.linkedIn} rel="noreferrer" target="_blank">
           <img src={LinkedInLogo} alt="LinkedIn" width={25} />
         </a>
-        <a href={AppInfo.github} rel="noopener" target="_blank">
+        <a href={AppInfo.github} rel="noreferrer" target="_blank">
           <img src={GithubLogo} alt="Github" width={25} />
         </a>
       </p>

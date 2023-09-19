@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { type Project, ProjectCard } from './components/ProjectCard';
+import type { Project } from './components/ProjectCard';
+import { ProjectCard } from './components/ProjectCard';
 import ProjectInfo from './components/ProjectInfo';
 import About from './components/About';
 import projects from './config/projects'

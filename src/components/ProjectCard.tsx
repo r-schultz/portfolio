@@ -1,5 +1,5 @@
 import { animated, easings, useSpring } from '@react-spring/web';
-import { forwardRef, useMemo } from 'react';
+import { forwardRef } from 'react';
 import useWindowDimensions from '../hooks/useWindowDimensions';
 import './ProjectCard.scss';
 
@@ -34,7 +34,7 @@ const ProjectCard = forwardRef<JSX.IntrinsicElements['li'], Props>(function({ind
       rotate: (index % 2 === 0 ? -rotation : rotation)
     },
     to: {
-      x: 0,
+      x: -20,
       y: (CARD_DIMENSIONS.HEIGHT * index) + (index > 0 ? 5 * index : 0),
       rotate: 0
     },
@@ -44,20 +44,17 @@ const ProjectCard = forwardRef<JSX.IntrinsicElements['li'], Props>(function({ind
   });
 
   const [bounceSpring, api] = useSpring(() => ({
-    loop: true,
     duration: 200,
     pause: !project.active,
     from: {
-      x: 0,
-      y: 0,
+      x: -20,
     },
-    to: async (next, cancel) => {
-      await next({ x: 6 });
-      await next({ x: 0 });
+    to: {
+      x: 20,
     },
     config: {
       easing: easings.easeInBounce,
-      bounce: 100,
+      bounce: 1000,
     }
   }), [project.active]);
 

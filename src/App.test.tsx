@@ -4,6 +4,6 @@ import App from './App';
 
 test('renders project list', () => {
   render(<App />);
-  const projectOne = screen.getByText(/Project 1/i);
-  expect(projectOne).toBeInTheDocument();
+  const projects = screen.getByRole('navigation');
+  expect(projects.childNodes.length).toEqual(6);
 });
