@@ -1,16 +1,35 @@
 .project-item-container {
-  list-style-type: none;
-}
+  position: absolute;
+  margin: 8px 0;
 
-.project-item {
-  background-color: #e7dff6;
-  border-radius: 4px;
-  box-shadow: 2px 0 6px 3px #b0b0b0;
-  cursor: pointer;
-  padding: 4px;
-  
-  img {
-    max-width: 100%;
-    border: 1px solid #cdcdcd;
+  list-style-type: none;
+
+  .project-item {
+    padding: 4px;
+
+    background-color: #e7dff6;
+    border-radius: 4px;
+    box-shadow: 2px 0 6px 3px #b0b0b0;
+
+    transition: box-shadow 1s;
+
+    cursor: pointer;
+
+    &:hover, &.active {
+      box-shadow: 2px 0 6px 3px #797979;
+    }
+
+    p {
+      margin: 0;
+      padding: 4px;
+      font-size: 16px;
+      text-align: right;
+    }
+
+    img {
+      width: calc(100% - 2px);
+      border: 1px solid #cdcdcd;
+      border-radius: 4px;
+    }
   }
 }

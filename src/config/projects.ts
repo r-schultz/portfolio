@@ -7,42 +7,42 @@ const projects : Project[] = [{
     description: 'Project 1 description',
     imageSrc: salesTrends,
     imageAlt: '',
-    active: false
   }, {
     id: 2,
     title: 'Project 2',
     description: 'Project 2 description',
     imageSrc: salesTrends,
     imageAlt: '',
-    active: false
   },{
     id: 3,
     title: 'Project 3',
     description: 'Some project details and lots of text and stuff here thanx for reading',
     imageSrc: salesTrends,
     imageAlt: '',
-    active: false
   },{
     id: 4,
     title: 'Project 4',
     description: 'Some project details and lots of text and stuff here thanx for reading',
     imageSrc: salesTrends,
     imageAlt: '',
-    active: false
   },{
     id: 5,
     title: 'Project 5',
     description: 'Some project details and lots of text and stuff here thanx for reading',
     imageSrc: salesTrends,
     imageAlt: '',
-    active: false
   },{
     id: 6,
     title: 'Project 6',
     description: 'Some project details and lots of text and stuff here thanx for reading',
     imageSrc: salesTrends,
     imageAlt: '',
-    active: false
+  }, {
+    id: 7,
+    title: 'Project 7',
+    description: 'Some project details and lots of text and stuff here thanx for reading',
+    imageSrc: salesTrends,
+    imageAlt: '',
   }];
 
   export default projects;

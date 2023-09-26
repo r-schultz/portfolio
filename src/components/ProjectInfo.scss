@@ -1,10 +1,9 @@
 .project-info {
   display: none;
-  overflow: hidden;
-  padding: 10px;
-  height: 100vh;
+  overflow: auto;
+  height: calc(100% - 20px);
 
-  background-color: #ebebeb;
+  padding: 10px;
 
   &.active {
     display: block;
