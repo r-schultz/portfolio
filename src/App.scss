@@ -1,16 +1,27 @@
+.app {
+  overflow: hidden;
+  height: 100vh;
+
+  background-color: #ebebeb;
+}
+
 .main-content {
   display: flex;
-  z-index: 0;
+  height: calc(100% - 114px);
 
-  nav {
-    max-width: 200px;
-  }
+  margin-top: 114px;
 
-  div {
+  > div {
     flex-grow: 1;
   }
 }
 
 .project-list {
-  width: 100%;
+  padding: 8px 0;
+  overflow: auto;
+  width: 218px;
+
+  &.in-flow {
+    position: relative;
+  }
 }
