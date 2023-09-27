@@ -1,5 +1,5 @@
-import { animated, Controller, easings, SpringValue, useSpring } from '@react-spring/web';
-import { forwardRef, useMemo, useImperativeHandle, useState } from 'react';
+import { animated, easings, useSpring } from '@react-spring/web';
+import { forwardRef, useImperativeHandle, useState } from 'react';
 import useWindowDimensions from '../hooks/useWindowDimensions';
 import './ProjectCard.scss';
 
@@ -10,7 +10,7 @@ const INITIAL_X_POS = -25;
 export interface Project {
   id: number;
   title: string;
-  description: string;
+  description?: JSX.Element;
   imageSrc?: string;
   imageAlt?: string;
 }
@@ -31,12 +31,12 @@ const ProjectCard = forwardRef<ProjectHandle, Props>(function({index, project, s
   const rotation = index % ROTATION_MAX_DEG;
   const [active, setActive] = useState<boolean>(false);
 
-  const [layoutSpring, layoutAPI] = useSpring(() => ({
+  const [layoutSpring] = useSpring(() => ({
     delay: 1250,
     duration: 500,
     from: {
-      x: (Math.random() * width / 2) + 200,
-      y: (Math.random() * 100) + 114,
+      x: (Math.random() * width / 2) + 180,
+      y: (Math.random() * 75) + 50,
       rotate: (index % 2 === 0 ? -rotation : rotation),
       scale: 1.6
     },
@@ -54,39 +54,20 @@ const ProjectCard = forwardRef<ProjectHandle, Props>(function({index, project, s
     }
   }));
 
-  // const slideController = useMemo(() => {
-  //   const slideSpring = new SpringValue({
-  //     from: {
-  //       x: INITIAL_X_POS,
-  //     },
-  //     to: {
-  //       x: 25,
-  //     },
-  //   });
-  //   return new Controller({ from: slideSpring, reverse: active });
-  // }, [active]);
-
   const [slideSpring, slideAPI] = useSpring(() => ({
-    pause: true,
     duration: 200,
-    reverse: active,
-    from: {
-      x: INITIAL_X_POS,
-    },
-    to: {
-      x: 25,
-    },
+    x: INITIAL_X_POS,
     config: {
       easing: easings.easeInBounce,
       bounce: 1000,
     }
-  }), [active]);
+  }));
 
   useImperativeHandle(ref, () => {
     return {
       reset() {
         setActive(false);
-        slideAPI.start();
+        slideAPI.start({ x: INITIAL_X_POS });
       }
     }
   });
@@ -97,8 +78,8 @@ const ProjectCard = forwardRef<ProjectHandle, Props>(function({index, project, s
       }}
       onClick={() => {
         setActiveProject(project);
-        slideAPI.start();
         setActive(true);
+        slideAPI.start({ x: 25 });
       }}>
         <animated.div className={`project-item ${active ? 'active' : ''}`} style={{
           width: CARD_DIMENSIONS.WIDTH,

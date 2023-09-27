@@ -17,6 +17,7 @@
 }
 
 .project-list {
+  flex-shrink: 0;
   padding: 8px 0;
   overflow: auto;
   width: 218px;
