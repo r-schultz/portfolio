@@ -1,9 +1,9 @@
-import React, { createRef, RefObject, useRef, useState } from 'react';
+import React, { createRef, RefObject, useState } from 'react';
 import type { Project, ProjectHandle } from './components/ProjectCard';
 import { ProjectCard } from './components/ProjectCard';
 import ProjectInfo from './components/ProjectInfo';
 import About from './components/About';
-import projects from './config/projects'
+import projects from './components/projects'
 import './App.scss';
 
 function App() {
