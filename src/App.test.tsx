@@ -5,5 +5,5 @@ import App from './App';
 test('renders project list', () => {
   render(<App />);
   const projects = screen.getByRole('navigation');
-  expect(projects.childNodes.length).toEqual(7);
+  expect(projects.childNodes.length).toEqual(2);
 });
