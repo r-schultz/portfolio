@@ -1,19 +1,12 @@
 import { animated, easings, useSpring } from '@react-spring/web';
-import { forwardRef, useImperativeHandle, useState } from 'react';
+import { forwardRef, useImperativeHandle, useMemo, useState } from 'react';
 import useWindowDimensions from '../hooks/useWindowDimensions';
+import type { Project } from './projects';
 import './ProjectCard.scss';
 
 const CARD_DIMENSIONS = { WIDTH: 200, HEIGHT: 175, PADDING: 10 };
 const ROTATION_MAX_DEG = 10;
 const INITIAL_X_POS = -25;
-
-export interface Project {
-  id: number;
-  title: string;
-  description?: JSX.Element;
-  imageSrc?: string;
-  imageAlt?: string;
-}
 
 interface Props {
   index: number;
@@ -72,21 +65,28 @@ const ProjectCard = forwardRef<ProjectHandle, Props>(function({index, project, s
     }
   });
 
+  const handleSetActive = () => {
+    setActiveProject(project);
+    setActive(true);
+    slideAPI.start({ x: 25 });
+  };
+
   return (
-    <animated.li className={'project-item-container'} style={{
+    <animated.li tabIndex={index} className={'project-item-container'} style={{
         ...layoutSpring,
       }}
-      onClick={() => {
-        setActiveProject(project);
-        setActive(true);
-        slideAPI.start({ x: 25 });
-      }}>
+      onKeyDown={(e) => {
+        if (e.key === 'Enter') {
+          handleSetActive();
+        }
+      }}
+      onClick={handleSetActive}>
         <animated.div className={`project-item ${active ? 'active' : ''}`} style={{
           width: CARD_DIMENSIONS.WIDTH,
           ...slideSpring
         }}>
           <p>{project.title}</p>
-          <img src={project.imageSrc} alt={project.imageAlt} />
+          <img src={project.images[0].src} alt={project.images[0].alt} />
         </animated.div>
     </animated.li>
   );

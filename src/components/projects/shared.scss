@@ -1,0 +1,22 @@
+.tech-list {
+  padding-left: 0;
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+
+  li {
+    align-self: start;
+    align-items: center;
+    display: flex;
+    flex-shrink: 0;
+    margin: 4px;
+    padding: 4px;
+
+    border: 1px solid rgb(139, 139, 139);
+    border-radius: 4px;
+
+    svg {
+      margin-right: 6px;
+    }
+  }
+}

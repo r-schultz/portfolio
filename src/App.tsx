@@ -1,15 +1,18 @@
 import React, { createRef, RefObject, useState } from 'react';
-import type { Project, ProjectHandle } from './components/ProjectCard';
+import type { ProjectHandle } from './components/ProjectCard';
 import { ProjectCard } from './components/ProjectCard';
 import ProjectInfo from './components/ProjectInfo';
 import About from './components/About';
-import projects from './components/projects'
+import projectsList from './components/projects'
+import type { Project } from './components/projects';
 import './App.scss';
+import 'react-photo-view/dist/react-photo-view.css';
 
 function App() {
   const [activeProject, setActiveProject] = useState<Project>();
   const [lastActiveProjectRef, setLastActiveProjectRef] = useState<RefObject<ProjectHandle>>();
   const [doneAnimating, setDoneAnimating] = useState<boolean>(false);
+  const projects = projectsList();
 
   function setNewActiveProject(project: Project, projectRef: RefObject<ProjectHandle>) {
     setActiveProject(project);
