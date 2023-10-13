@@ -1,7 +1,7 @@
 import { animated, easings, useSpring } from '@react-spring/web';
-import { forwardRef, useImperativeHandle, useMemo, useState } from 'react';
+import { forwardRef, useImperativeHandle, useState } from 'react';
 import useWindowDimensions from '../hooks/useWindowDimensions';
-import type { Project } from './projects';
+import type { Project } from './pages/projects';
 import './ProjectCard.scss';
 
 const CARD_DIMENSIONS = { WIDTH: 200, HEIGHT: 175, PADDING: 10 };

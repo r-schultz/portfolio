@@ -1,12 +1,11 @@
 import { PhotoProvider, PhotoView } from 'react-photo-view';
-import audienceBuilder from '../../assets/rf_audience-builder.png';
-import audienceBuilderThumb from '../../assets/rf_audience-builder_thumb.jpg';
-import audienceBuilder2 from '../../assets/rf_audience-builder-2.png';
-import audienceBuilderThumb2 from '../../assets/rf_audience-builder-2_thumb.jpg';
-import Backbone from './icons/Backbone';
-import PhantomJS from './icons/PhantomJS';
-import RoR from './icons/RoR';
-import Sass from './icons/Sass';
+import audienceBuilder from '../../../assets/rf_audience-builder.png';
+import audienceBuilderThumb from '../../../assets/rf_audience-builder_thumb.jpg';
+import audienceBuilder2 from '../../../assets/rf_audience-builder-2.png';
+import audienceBuilderThumb2 from '../../../assets/rf_audience-builder-2_thumb.jpg';
+import Backbone from '../../icons/Backbone';
+import RoR from '../../icons/RoR';
+import Sass from '../../icons/Sass';
 import './shared.scss';
 
 export default function AudienceBuilder() {
@@ -17,8 +16,9 @@ export default function AudienceBuilder() {
         The goal was to aid project managers in developing advanced targeting strategies for clients.</p>
       </section>
       <section>
-        <h3>Details</h3>
+        <h3><span>Details</span><span></span></h3>
         <p>Company: Rocket Fuel</p>
+        <p>Industry: Online Advertising</p>
         <figure>
           <figcaption>Screenshots</figcaption>
           <div>
@@ -35,9 +35,9 @@ export default function AudienceBuilder() {
         <figure>
           <figcaption>Technology</figcaption>
           <ul className='tech-list'>
-            <li><Backbone /> Backbone & Marionette</li>
-            <li><RoR /> Ruby on Rails</li>
-            <li><Sass /> Sass</li>
+            <li><Backbone /></li>
+            <li><RoR /></li>
+            <li><Sass /></li>
           </ul>
         </figure>
       </section>

@@ -1,7 +1,7 @@
 import './About.scss';
-import AppInfo from '../config/app';
-import LinkedInLogo from '../assets/linkedIn.png';
-import GithubLogo from '../assets/github.png';
+import AppInfo from '../../config/app';
+import LinkedInLogo from '../../assets/linkedIn.png';
+import GithubLogo from '../../assets/github.png';
 
 export default function About() {
   return (

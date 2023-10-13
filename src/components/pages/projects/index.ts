@@ -1,5 +1,5 @@
-import salesTrends from '../../assets/sales-trends.png';
-import audienceBuilder from '../../assets/rf_audience-builder_thumb.jpg';
+import salesTrends from '../../../assets/sales-trends.png';
+import audienceBuilder from '../../../assets/rf_audience-builder_thumb.jpg';
 import InstoreInvoice from './InstoreInvoice';
 import AudienceBuilder from './AudienceBuilder';
 

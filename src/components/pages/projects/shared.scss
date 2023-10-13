@@ -1,3 +1,9 @@
+@import '../../../mixins';
+
+section h3 {
+  @include text-with-line(#b0b0b0);
+}
+
 .tech-list {
   padding-left: 0;
   list-style-type: none;
@@ -10,13 +16,14 @@
     display: flex;
     flex-shrink: 0;
     margin: 4px;
-    padding: 4px;
+    padding: 6px;
 
     border: 1px solid rgb(139, 139, 139);
     border-radius: 4px;
+    cursor: default;
 
     svg {
-      margin-right: 6px;
+      margin-right: 4px;
     }
   }
 }
