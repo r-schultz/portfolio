@@ -1,3 +1,5 @@
+@import '../../mixins';
+
 .about-container {
   height: 90px;
   position: fixed;
@@ -7,7 +9,7 @@
   padding: 12px;
 
   background-image: linear-gradient(30deg, rgb(22, 33, 71), rgb(95, 95, 95));
-  box-shadow: 0 0 20px rgb(154, 154, 154);
+  box-shadow: 0 2px 10px 0 rgb(48, 48, 48);
   color: #f4f4f4;
 }
 
@@ -24,18 +26,5 @@
 }
 
 .caption {
-  width: 100%;
-  display: flex;
-  align-items: space-between;
-
-  span:nth-child(2) {
-    position: relative;
-    margin: 0 20px 0 6px;
-    flex-grow: 1;
-    top: .6em;
-    
-    content: "";
-    
-    border-top: 1px solid #f4f4f4;
-  }
+  @include text-with-line(#f4f4f4);
 }

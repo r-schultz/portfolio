@@ -1,0 +1,32 @@
+.project-info {
+  display: none;
+  overflow: auto;
+  height: calc(100% - 20px);
+
+  padding: 10px;
+
+  &.active {
+    display: block;
+  }
+
+  section figure {
+    margin: 0;
+
+    figcaption {
+      margin: 8px 0;
+    }
+
+    img {
+      display: inline-block;
+
+      margin: 0 4px;
+
+      cursor: pointer;
+      border: 1px solid #da7e51;
+    }
+
+    ul {
+      margin-top: 0;
+    }
+  }
+}
