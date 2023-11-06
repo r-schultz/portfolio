@@ -1,7 +1,7 @@
 import { animated, easings, useSpring } from '@react-spring/web';
 import { forwardRef, useImperativeHandle, useState } from 'react';
-import useWindowDimensions from '../hooks/useWindowDimensions';
-import type { Project } from './pages/projects';
+import useWindowDimensions from '@/hooks/useWindowDimensions';
+import type { Project } from '@/components/pages/projects';
 import './ProjectCard.scss';
 
 const CARD_DIMENSIONS = { WIDTH: 200, HEIGHT: 175, PADDING: 10 };
@@ -35,7 +35,7 @@ const ProjectCard = forwardRef<ProjectHandle, Props>(function({index, project, s
     },
     to: {
       x: INITIAL_X_POS,
-      y: (CARD_DIMENSIONS.HEIGHT * index) + (index > 0 ? 20 * index : 0),
+      y: (CARD_DIMENSIONS.HEIGHT * index) + (index > 0 ? CARD_DIMENSIONS.PADDING * index : 0),
       rotate: 0,
       scale: 1
     },
@@ -86,10 +86,10 @@ const ProjectCard = forwardRef<ProjectHandle, Props>(function({index, project, s
           ...slideSpring
         }}>
           <p>{project.title}</p>
-          <img src={project.images[0].src} alt={project.images[0].alt} />
+          <img src={project.image.src} alt={project.image.alt} />
         </animated.div>
     </animated.li>
   );
 });
 
-export { ProjectCard };
+export default ProjectCard;

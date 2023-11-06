@@ -1,10 +1,10 @@
 import React, { createRef, RefObject, useState } from 'react';
-import type { ProjectHandle } from './components/ProjectCard';
-import { ProjectCard } from './components/ProjectCard';
-import ProjectInfo from './components/pages/ProjectInfo';
-import About from './components/pages/About';
-import projectsList from './components/pages/projects'
-import type { Project } from './components/pages/projects';
+import type { ProjectHandle } from '@/components/ProjectCard';
+import ProjectCard from '@/components/ProjectCard';
+import ProjectInfo from '@/components/pages/ProjectInfo';
+import About from '@/components/pages/About';
+import projectsList from '@/components/pages/projects'
+import type { Project } from '@/components/pages/projects';
 import './App.scss';
 import 'react-photo-view/dist/react-photo-view.css';
 

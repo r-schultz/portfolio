@@ -27,6 +27,9 @@
     }
 
     img {
+      object-fit: cover;
+      object-position: top;
+      max-height: 125px;
       width: calc(100% - 2px);
       border: 1px solid #cdcdcd;
       border-radius: 4px;

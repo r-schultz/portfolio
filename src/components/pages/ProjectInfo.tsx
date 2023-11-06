@@ -7,7 +7,7 @@ export default function ProjectInfo({ project }: { project?: Project }) {
       <header>
         <h2>{project?.title}</h2>
       </header>
-      {project?.description}
+      {project?.description()}
     </div>
   );
 }

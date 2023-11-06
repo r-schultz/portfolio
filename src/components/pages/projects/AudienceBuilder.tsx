@@ -1,11 +1,12 @@
 import { PhotoProvider, PhotoView } from 'react-photo-view';
-import audienceBuilder from '../../../assets/rf_audience-builder.png';
-import audienceBuilderThumb from '../../../assets/rf_audience-builder_thumb.jpg';
-import audienceBuilder2 from '../../../assets/rf_audience-builder-2.png';
-import audienceBuilderThumb2 from '../../../assets/rf_audience-builder-2_thumb.jpg';
-import Backbone from '../../icons/Backbone';
-import RoR from '../../icons/RoR';
-import Sass from '../../icons/Sass';
+import audienceBuilder from '@/assets/rf_audience-builder.png';
+import audienceBuilderThumb from '@/assets/rf_audience-builder_thumb.jpg';
+import audienceBuilder2 from '@/assets/rf_audience-builder-2.png';
+import audienceBuilderThumb2 from '@/assets/rf_audience-builder-2_thumb.jpg';
+import Backbone from '@/components/icons/Backbone';
+import RoR from '@/components/icons/RoR';
+import Sass from '@/components/icons/Sass';
+import SectionHeader from '@/components/SectionHeader';
 import './shared.scss';
 
 export default function AudienceBuilder() {
@@ -13,10 +14,10 @@ export default function AudienceBuilder() {
     <>
       <section>
         <p><strong>Audience Builder</strong> visualizes complex logic for targeting people in advertising campaigns.
-        The goal was to aid project managers in developing advanced targeting strategies for clients.</p>
+        It was designed to aid project managers in developing advanced targeting strategies for clients.</p>
       </section>
       <section>
-        <h3><span>Details</span><span></span></h3>
+        <SectionHeader title='Details' color='off-white'/>
         <p>Company: Rocket Fuel</p>
         <p>Industry: Online Advertising</p>
         <figure>
