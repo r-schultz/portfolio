@@ -1,0 +1,9 @@
+const path = require('path');
+
+export default {
+  webpack: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+    },
+  },
+};

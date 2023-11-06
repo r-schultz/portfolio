@@ -1,0 +1,25 @@
+@mixin text-with-line($color) {
+  width: 100%;
+  display: flex;
+  align-items: space-between;
+
+  span:nth-child(2) {
+    position: relative;
+    margin: 0 6px 0 6px;
+    flex-grow: 1;
+    top: .6em;
+    
+    content: "";
+    
+    border-top: 1px solid $color;
+  }
+}
+
+.section-header {
+  &.off-white {
+    @include text-with-line(#b0b0b0);
+  }
+  &.white {
+    @include text-with-line(#f4f4f4);
+  }
+}
