@@ -1,12 +1,8 @@
 import { animated, easings, useSpring } from '@react-spring/web';
-import { forwardRef, useImperativeHandle, useState } from 'react';
+import { forwardRef, useImperativeHandle, useMemo, useState } from 'react';
 import useWindowDimensions from '@/hooks/useWindowDimensions';
 import type { Project } from '@/components/pages/projects';
 import './ProjectCard.scss';
-
-const CARD_DIMENSIONS = { WIDTH: 200, HEIGHT: 175, PADDING: 10 };
-const ROTATION_MAX_DEG = 10;
-const INITIAL_X_POS = -25;
 
 interface Props {
   index: number;
@@ -21,21 +17,35 @@ export type ProjectHandle = {
 
 const ProjectCard = forwardRef<ProjectHandle, Props>(function({index, project, setActiveProject, onAnimationComplete}, ref) {
   const { width } = useWindowDimensions();
-  const rotation = index % ROTATION_MAX_DEG;
   const [active, setActive] = useState<boolean>(false);
+
+  const dimensions = useMemo(() => {
+    return {
+      INITIAL_X: width > 600 ? -25 : -50,
+      SELECTED_X: width > 600 ? 25 : 0,
+      CARD: {
+        WIDTH: width > 600 ? 200 : 150,
+        HEIGHT: width > 600 ? 175 : 100,
+        PADDING: 10
+      },
+      ROTATION_MAX_DEG: 10
+    }
+  }, [width]);
+
+  const rotation = index % dimensions.ROTATION_MAX_DEG;
 
   const [layoutSpring] = useSpring(() => ({
     delay: 1250,
     duration: 500,
     from: {
-      x: (Math.random() * width / 2) + 180,
+      x: (Math.random() * width / 2) + 100,
       y: (Math.random() * 75) + 50,
       rotate: (index % 2 === 0 ? -rotation : rotation),
-      scale: 1.6
+      scale: 1.8
     },
     to: {
-      x: INITIAL_X_POS,
-      y: (CARD_DIMENSIONS.HEIGHT * index) + (index > 0 ? CARD_DIMENSIONS.PADDING * index : 0),
+      x: dimensions.INITIAL_X,
+      y: (dimensions.CARD.HEIGHT * index) + (index > 0 ? dimensions.CARD.PADDING * index : 0),
       rotate: 0,
       scale: 1
     },
@@ -45,22 +55,22 @@ const ProjectCard = forwardRef<ProjectHandle, Props>(function({index, project, s
     onRest() {
       onAnimationComplete(project);
     }
-  }));
+  }), [width]);
 
   const [slideSpring, slideAPI] = useSpring(() => ({
     duration: 200,
-    x: INITIAL_X_POS,
+    x: dimensions.INITIAL_X,
     config: {
       easing: easings.easeInBounce,
       bounce: 1000,
     }
-  }));
+  }), [width]);
 
   useImperativeHandle(ref, () => {
     return {
       reset() {
         setActive(false);
-        slideAPI.start({ x: INITIAL_X_POS });
+        slideAPI.start({ x: dimensions.INITIAL_X });
       }
     }
   });
@@ -68,7 +78,7 @@ const ProjectCard = forwardRef<ProjectHandle, Props>(function({index, project, s
   const handleSetActive = () => {
     setActiveProject(project);
     setActive(true);
-    slideAPI.start({ x: 25 });
+    slideAPI.start({ x: dimensions.SELECTED_X });
   };
 
   return (
@@ -82,7 +92,7 @@ const ProjectCard = forwardRef<ProjectHandle, Props>(function({index, project, s
       }}
       onClick={handleSetActive}>
         <animated.div className={`project-item ${active ? 'active' : ''}`} style={{
-          width: CARD_DIMENSIONS.WIDTH,
+          width: dimensions.CARD.WIDTH,
           ...slideSpring
         }}>
           <p>{project.title}</p>

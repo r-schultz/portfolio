@@ -1,12 +1,48 @@
 .project-info {
-  display: none;
   overflow: auto;
   height: calc(100% - 20px);
 
   padding: 10px;
 
-  &.active {
-    display: block;
+  h2 {
+    margin-bottom: 4px;
+  }
+
+  .no-selection {
+    align-items: center;
+    display: flex;
+    margin: 35px 0 0 -10px;
+    
+    font-size: 24px;
+  }
+
+  .company-info {
+    margin-top: 0;
+    font-size: 11px;
+    text-transform: uppercase;
+  }
+  
+  .tech-list {
+    padding-left: 0;
+    list-style-type: none;
+  
+    li {
+      align-self: start;
+      align-items: center;
+      display: inline-block;
+      margin: 4px;
+      padding: 6px;
+  
+      border: 1px solid rgb(139, 139, 139);
+      border-radius: 4px;
+      cursor: default;
+  
+      svg {
+        display: inline-block;
+        margin-right: 4px;
+        vertical-align: middle;
+      }
+    }
   }
 
   section figure {

@@ -23,15 +23,17 @@
       margin: 0;
       padding: 4px;
       font-size: 16px;
+      overflow: hidden;
       text-align: right;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
     img {
       object-fit: cover;
       object-position: top;
-      max-height: 125px;
+      height: 125px;
       width: calc(100% - 2px);
-      border: 1px solid #cdcdcd;
       border-radius: 4px;
     }
   }

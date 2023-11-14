@@ -12,18 +12,27 @@ interface ProjectImage {
   alt: string;
 }
 
+interface CompanyInfo {
+  name: string;
+  industry: string;
+}
+
 export interface Project {
   id: number;
   title: string;
+  company: CompanyInfo;
   description: () => JSX.Element;
   image: ProjectImage;
 }
-
 
 export default function projects(): Project[] {
   return [{
     id: 1,
     title: 'Square Installments',
+    company: {
+      name: 'Square Inc.',
+      industry: 'Finance',
+    },
     description: () => <SquareInstallments />,
     image: {
       src: installments,
@@ -32,6 +41,10 @@ export default function projects(): Project[] {
   }, {
     id: 2,
     title: 'Installments Print Materials',
+    company: {
+      name: 'Square Inc.',
+      industry: 'Finance',
+    },
     description: () => <SquarePrint />,
     image: {
       src: print,
@@ -41,6 +54,10 @@ export default function projects(): Project[] {
   {
     id: 3,
     title: 'Audience Builder',
+    company: {
+      name: 'Rocket Fuel Inc.',
+      industry: 'Online Advertising',
+    },
     description: () => <AudienceBuilder />,
     image: {
       src: audienceBuilder,
@@ -49,6 +66,10 @@ export default function projects(): Project[] {
   }, {
     id: 4,
     title: 'Snapshot Email',
+    company: {
+      name: 'Rocket Fuel Inc.',
+      industry: 'Online Advertising',
+    },
     description: () => <SnapshotEmail />,
     image: {
       src: snapshotEmail,

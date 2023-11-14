@@ -26,3 +26,9 @@
     position: relative;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .project-list {
+    width: 125px;
+  }
+}

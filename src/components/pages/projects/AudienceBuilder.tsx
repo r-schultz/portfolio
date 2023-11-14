@@ -7,19 +7,18 @@ import Backbone from '@/components/icons/Backbone';
 import RoR from '@/components/icons/RoR';
 import Sass from '@/components/icons/Sass';
 import SectionHeader from '@/components/SectionHeader';
-import './shared.scss';
 
 export default function AudienceBuilder() {
   return (
     <>
       <section>
-        <p><strong>Audience Builder</strong> visualizes complex logic for targeting people in advertising campaigns.
-        It was designed to aid project managers in developing advanced targeting strategies for clients.</p>
+        <p>
+          <strong>Audience Builder</strong> visualizes complex logic for targeting people in advertising campaigns.
+          It was designed to aid project managers in developing advanced targeting strategies for clients.
+        </p>
       </section>
       <section>
         <SectionHeader title='Details' color='off-white'/>
-        <p>Company: Rocket Fuel</p>
-        <p>Industry: Online Advertising</p>
         <figure>
           <figcaption>Screenshots</figcaption>
           <div>

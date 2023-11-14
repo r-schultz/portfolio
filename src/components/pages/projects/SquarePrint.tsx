@@ -25,8 +25,6 @@ export default function SquarePrint() {
       </section>
       <section>
         <SectionHeader title='Details' color='off-white'/>
-        <p>Company | Square</p>
-        <p>Industry | Finance</p>
         <figure>
           <figcaption>Screenshots</figcaption>
           <div>
