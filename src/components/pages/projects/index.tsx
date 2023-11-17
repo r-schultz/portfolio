@@ -1,10 +1,15 @@
+import appleReports from '@/assets/apple_radar_thumb.jpg'
 import installments from '@/assets/sq_installments-home_thumb.jpeg';
 import audienceBuilder from '@/assets/rf_audience-builder_thumb.jpg';
 import snapshotEmail from '@/assets/rf_snapshot-email_thumb.jpg';
 import print from '@/assets/sq_print-main_thumb.jpg';
-import SquareInstallments from './SquareInstallments';
+import tools from '@/assets/sq_installments-tools_thumb.jpg';
+
+import AppleReports from './AppleReports';
 import AudienceBuilder from './AudienceBuilder';
+import InstallmentsTools from './InstallmentsTools';
 import SnapshotEmail from './SnapshotEmail';
+import SquareInstallments from './SquareInstallments';
 import SquarePrint from './SquarePrint';
 
 interface ProjectImage {
@@ -27,7 +32,6 @@ export interface Project {
 
 export default function projects(): Project[] {
   return [{
-    id: 1,
     title: 'Square Installments',
     company: {
       name: 'Square Inc.',
@@ -39,7 +43,6 @@ export default function projects(): Project[] {
       alt: 'Square Installments preapproval website'
     }
   }, {
-    id: 2,
     title: 'Installments Print Materials',
     company: {
       name: 'Square Inc.',
@@ -50,9 +53,31 @@ export default function projects(): Project[] {
       src: print,
       alt: 'Installments print materials UI'
     }
+  }, {
+    title: 'Installments Tools',
+    company: {
+      name: 'Square Inc.',
+      industry: 'Finance',
+    },
+    description: () => <InstallmentsTools />,
+    image: {
+      src: tools,
+      alt: 'Installments internal tools'
+    }
   },
   {
-    id: 3,
+    title: 'Test Reporting',
+    company: {
+      name: 'Apple Inc.',
+      industry: 'Consumer Technology',
+    },
+    description: () => <AppleReports />,
+    image: {
+      src: appleReports,
+      alt: 'Apple internal reporting UI'
+    }
+  },
+  {
     title: 'Audience Builder',
     company: {
       name: 'Rocket Fuel Inc.',
@@ -64,7 +89,6 @@ export default function projects(): Project[] {
       alt: 'Audience Builder application for managing advertising campaigns'
     }
   }, {
-    id: 4,
     title: 'Snapshot Email',
     company: {
       name: 'Rocket Fuel Inc.',
@@ -75,5 +99,10 @@ export default function projects(): Project[] {
       src: snapshotEmail,
       alt: 'Snapshot email for advertising stats'
     }
-  }];
+  }].map(function (projectObject, index) {
+    const proj = projectObject as Project;
+    proj.id = index;
+
+    return proj;
+  });
 };

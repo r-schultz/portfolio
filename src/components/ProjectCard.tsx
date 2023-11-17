@@ -36,7 +36,6 @@ const ProjectCard = forwardRef<ProjectHandle, Props>(function({index, project, s
 
   const [layoutSpring] = useSpring(() => ({
     delay: 1250,
-    duration: 500,
     from: {
       x: (Math.random() * width / 2) + 100,
       y: (Math.random() * 75) + 50,
@@ -50,7 +49,8 @@ const ProjectCard = forwardRef<ProjectHandle, Props>(function({index, project, s
       scale: 1
     },
     config: {
-      easing: easings.easeOutElastic
+      duration: 2000,
+      easing: easings.easeOutExpo,
     },
     onRest() {
       onAnimationComplete(project);
@@ -58,10 +58,10 @@ const ProjectCard = forwardRef<ProjectHandle, Props>(function({index, project, s
   }), [width]);
 
   const [slideSpring, slideAPI] = useSpring(() => ({
-    duration: 200,
     x: dimensions.INITIAL_X,
     config: {
-      easing: easings.easeInBounce,
+      duration: 1000,
+      easing: easings.easeOutExpo,
       bounce: 1000,
     }
   }), [width]);

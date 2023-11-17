@@ -1,15 +1,27 @@
-import { PhotoProvider, PhotoView } from 'react-photo-view';
 import SectionHeader from "@/components/SectionHeader";
 import RoR from "@/components/icons/RoR";
 import Sass from "@/components/icons/Sass";
+import Ember from '@/components/icons/Ember';
+import Figma from '@/components/icons/Figma';
 import printMain from '@/assets/sq_print-main.jpg';
 import printMainThumb from '@/assets/sq_print-main_thumb.jpg';
 import printAddress from '@/assets/sq_print-address.jpg';
 import printAddressThumb from '@/assets/sq_print-address_thumb.jpg';
-import Ember from '@/components/icons/Ember';
-import Figma from '@/components/icons/Figma';
+import ProjectImages from './ProjectImages';
 
 export default function SquarePrint() {
+  const images = [{
+    src: printMain,
+    thumb: printMainThumb,
+    alt: 'UI for ordering print materials',
+    caption: 'Merchant-facing page for ordering print materials from our vendor'
+  }, {
+    src: printAddress,
+    thumb: printAddressThumb,
+    alt: 'Confirming address for ordering print materials',
+    caption: 'Addresses were verified with USPS before materials could be shipped'
+  }];
+
   return (
     <>
       <section>
@@ -28,14 +40,7 @@ export default function SquarePrint() {
         <figure>
           <figcaption>Screenshots</figcaption>
           <div>
-            <PhotoProvider overlayRender={() => <div>Installments page</div>}>
-              <PhotoView src={printMain}>
-                <img src={printMainThumb} alt="UI for ordering print materials" height={50} />
-              </PhotoView>
-              <PhotoView src={printAddress}>
-                <img src={printAddressThumb} alt="Confirming address for ordering print materials" height={50} />
-              </PhotoView>
-            </PhotoProvider>
+            <ProjectImages images={images} />
           </div>
         </figure>
         <figure>
