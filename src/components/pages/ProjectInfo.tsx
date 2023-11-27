@@ -36,10 +36,10 @@ export default function ProjectInfo({ project }: { project?: Project }) {
   } else {
     return (
       <div className="project-info">
-        <span className="no-selection">
+        <div className="no-selection">
           <animated.span style={{...arrowSpring}}><LeftArrow /></animated.span>
-          Choose a project to start
-        </span>
+          <span className="no-selection-text">Choose a project to start</span>
+        </div>
       </div>
     );
   }

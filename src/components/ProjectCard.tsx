@@ -40,13 +40,15 @@ const ProjectCard = forwardRef<ProjectHandle, Props>(function({index, project, s
       x: (Math.random() * width / 2) + 100,
       y: (Math.random() * 75) + 50,
       rotate: (index % 2 === 0 ? -rotation : rotation),
-      scale: 1.8
+      scale: 1.8,
+      zIndex: Math.floor((Math.random() * 20)),
     },
     to: {
       x: dimensions.INITIAL_X,
       y: (dimensions.CARD.HEIGHT * index) + (index > 0 ? dimensions.CARD.PADDING * index : 0),
       rotate: 0,
-      scale: 1
+      scale: 1,
+      zIndex: 2,
     },
     config: {
       duration: 2000,

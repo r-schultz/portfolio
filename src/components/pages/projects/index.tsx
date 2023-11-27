@@ -1,16 +1,20 @@
-import appleReports from '@/assets/apple_radar_thumb.jpg'
-import installments from '@/assets/sq_installments-home_thumb.jpeg';
+import appleReports from '@/assets/apple_radar_thumb.jpg';
+import asyncReports from '@/assets/sq_async_thumb.jpg';
 import audienceBuilder from '@/assets/rf_audience-builder_thumb.jpg';
+import installments from '@/assets/sq_installments-home_thumb.jpeg';
+import salesTrends from '@/assets/sq_sales-trends_thumb.jpg';
 import snapshotEmail from '@/assets/rf_snapshot-email_thumb.jpg';
 import print from '@/assets/sq_print-main_thumb.jpg';
 import tools from '@/assets/sq_installments-tools_thumb.jpg';
 
 import AppleReports from './AppleReports';
+import AsyncReports from './AsyncReports';
 import AudienceBuilder from './AudienceBuilder';
 import InstallmentsTools from './InstallmentsTools';
 import SnapshotEmail from './SnapshotEmail';
 import SquareInstallments from './SquareInstallments';
 import SquarePrint from './SquarePrint';
+import SalesTrends from './SalesTrends';
 
 interface ProjectImage {
   src: string;
@@ -32,6 +36,28 @@ export interface Project {
 
 export default function projects(): Project[] {
   return [{
+    title: 'Sales Trends',
+    company: {
+      name: 'Square Inc.',
+      industry: 'Finance',
+    },
+    description: () => <SalesTrends />,
+    image: {
+      src: salesTrends,
+      alt: 'Sales Trends report UI'
+    }
+  }, {
+    title: 'Async Reports',
+    company: {
+      name: 'Square Inc.',
+      industry: 'Finance',
+    },
+    description: () => <AsyncReports />,
+    image: {
+      src: asyncReports,
+      alt: 'Async reports UI'
+    }
+  }, {
     title: 'Square Installments',
     company: {
       name: 'Square Inc.',
