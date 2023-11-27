@@ -1,4 +1,3 @@
-import { PhotoProvider, PhotoView } from 'react-photo-view';
 import audienceBuilder from '@/assets/rf_audience-builder.png';
 import audienceBuilderThumb from '@/assets/rf_audience-builder_thumb.jpg';
 import audienceBuilder2 from '@/assets/rf_audience-builder-2.png';
@@ -7,30 +6,35 @@ import Backbone from '@/components/icons/Backbone';
 import RoR from '@/components/icons/RoR';
 import Sass from '@/components/icons/Sass';
 import SectionHeader from '@/components/SectionHeader';
-import './shared.scss';
+import ProjectImages from './ProjectImages';
 
 export default function AudienceBuilder() {
+  const images = [{
+    src: audienceBuilder,
+    thumb: audienceBuilderThumb,
+    alt: 'Audience Builder UI',
+    caption: 'Complex workflows could be created to group users for future ad targeting'
+  }, {
+    src: audienceBuilder2,
+    thumb: audienceBuilderThumb2,
+    alt: 'Audience Builder UI with Audience Reach',
+    caption: 'Estimated size of the audience would be shown at the bottom if available'
+  }];
+
   return (
     <>
       <section>
-        <p><strong>Audience Builder</strong> visualizes complex logic for targeting people in advertising campaigns.
-        It was designed to aid project managers in developing advanced targeting strategies for clients.</p>
+        <p>
+          <strong>Audience Builder</strong> visualizes complex logic for targeting people in advertising campaigns.
+          It was designed to aid project managers in developing advanced targeting strategies for clients.
+        </p>
       </section>
       <section>
         <SectionHeader title='Details' color='off-white'/>
-        <p>Company: Rocket Fuel</p>
-        <p>Industry: Online Advertising</p>
         <figure>
           <figcaption>Screenshots</figcaption>
           <div>
-            <PhotoProvider>
-              <PhotoView src={audienceBuilder}>
-                <img src={audienceBuilderThumb} alt="Audience Builder UI" height={50} />
-              </PhotoView>
-              <PhotoView src={audienceBuilder2}>
-                <img src={audienceBuilderThumb2} alt="Audience Builder UI with Audience Reach" height={50} />
-              </PhotoView>
-            </PhotoProvider>
+            <ProjectImages images={images} />
           </div>
         </figure>
         <figure>

@@ -1,7 +1,7 @@
-import { PhotoProvider, PhotoView } from 'react-photo-view';
 import SectionHeader from "@/components/SectionHeader";
 import RoR from "@/components/icons/RoR";
 import Sass from "@/components/icons/Sass";
+import Ember from '@/components/icons/Ember';
 import installmentsMain from '@/assets/sq_installments-home.jpg';
 import installmentsMainThumb from '@/assets/sq_installments-home_thumb.jpeg';
 import installmentsOnboarding from '@/assets/sq_installments-onboarding.jpg'
@@ -12,9 +12,36 @@ import installmentsPlans from '@/assets/sq_installments-plans.jpg'
 import installmentsPlansThumb from '@/assets/sq_installments-plans_thumb.jpg'
 import installmentsFeedback from '@/assets/sq_installments-fb.jpg'
 import installmentsFeedbackThumb from '@/assets/sq_installments-fb_thumb.jpg'
-import Ember from '@/components/icons/Ember';
+import ProjectImages from './ProjectImages';
 
 export default function SquareInstallments() {
+  const images = [{
+    src: installmentsMain,
+    thumb: installmentsMainThumb,
+    alt: 'Square Installments Home',
+    caption: 'Homepage for customers to apply for payment plans at a particular merchant'
+  }, {
+    src: installmentsOnboarding,
+    thumb: installmentsOnboardingThumb,
+    alt: 'Square Installments seller onboarding',
+    caption: 'Onboarding flow for sellers new to Installments included video and text resources'
+  }, {
+    src: installmentsResources,
+    thumb: installmentsResourcesThumb,
+    alt: 'Square Installments seller resources',
+    caption: 'Sellers in the Installments program could use these resources to promote the program in-store or on their own website'
+  }, {
+    src: installmentsPlans,
+    thumb: installmentsPlansThumb,
+    alt: 'Square Installments plan selection page',
+    caption: 'Sellers could choose from several plans to offer their customers'
+  }, {
+    src: installmentsFeedback,
+    thumb: installmentsFeedbackThumb,
+    alt: 'Square Installments feedback',
+    caption: 'Feedback screen for customers using Installments'
+  }];
+
   return (
     <>
       <section>
@@ -29,28 +56,10 @@ export default function SquareInstallments() {
       </section>
       <section>
         <SectionHeader title='Details' color='off-white'/>
-        <p>Company: Square</p>
-        <p>Industry: Finance</p>
         <figure>
           <figcaption>Screenshots</figcaption>
           <div>
-            <PhotoProvider overlayRender={() => <div>Installments page</div>}>
-              <PhotoView src={installmentsMain}>
-                <img src={installmentsMainThumb} alt="Square Installments Home" height={50} />
-              </PhotoView>
-              <PhotoView src={installmentsOnboarding}>
-                <img src={installmentsOnboardingThumb} alt="Square Installments seller onboarding" height={50} />
-              </PhotoView>
-              <PhotoView src={installmentsResources}>
-                <img src={installmentsResourcesThumb} alt="Square Installments seller resources" height={50} />
-              </PhotoView>
-              <PhotoView src={installmentsPlans}>
-                <img src={installmentsPlansThumb} alt="Square Installments plan selection page" height={50} />
-              </PhotoView>
-              <PhotoView src={installmentsFeedback}>
-                <img src={installmentsFeedbackThumb} alt="Square Installments feedback" height={50} />
-              </PhotoView>
-            </PhotoProvider>
+            <ProjectImages images={images} />
           </div>
         </figure>
         <figure>

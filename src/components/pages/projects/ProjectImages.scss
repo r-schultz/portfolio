@@ -1,0 +1,11 @@
+.overlay-image-caption {
+  bottom: 0;
+  position: fixed;
+  width: calc(100% - 48px);
+  z-index: 10;
+  
+  padding: 24px;
+  
+  background-color: rgb(44, 44, 44);
+  color: white;
+}

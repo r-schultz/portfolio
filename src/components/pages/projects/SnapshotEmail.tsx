@@ -1,14 +1,20 @@
-import { PhotoProvider, PhotoView } from 'react-photo-view';
 import email from '@/assets/rf_snapshot-email.png';
 import emailThumb from '@/assets/rf_snapshot-email_thumb.jpg';
 import PhantomJS from '@/components/icons/PhantomJS';
 import RoR from '@/components/icons/RoR';
 import Sass from '@/components/icons/Sass';
 import SectionHeader from '@/components/SectionHeader';
-import './shared.scss';
 import Backbone from '@/components/icons/Backbone';
+import ProjectImages from './ProjectImages';
 
 export default function SnapshotEmail() {
+  const images = [{
+    src: email,
+    thumb: emailThumb,
+    alt: 'Snapshot Email UI',
+    caption: 'Preview of the email before sending'
+  }];
+
   return (
     <>
       <section>
@@ -19,16 +25,10 @@ export default function SnapshotEmail() {
       </section>
       <section>
         <SectionHeader title='Details' color='off-white'/>
-        <p>Company: Rocket Fuel</p>
-        <p>Industry: Online Advertising</p>
         <figure>
           <figcaption>Screenshots</figcaption>
           <div>
-            <PhotoProvider>
-              <PhotoView src={email}>
-                <img src={emailThumb} alt="Snapshot Email UI" height={50} />
-              </PhotoView>
-            </PhotoProvider>
+            <ProjectImages images={images} />
           </div>
         </figure>
         <figure>
