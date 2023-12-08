@@ -33,15 +33,17 @@ const ProjectCard = forwardRef<ProjectHandle, Props>(function({index, project, s
   }, [width]);
 
   const rotation = index % dimensions.ROTATION_MAX_DEG;
+  const startX = Math.random() * Math.min(400, width) + Math.max((width / 2 - 200), 100);
+  const startY = Math.random() * 200 + 50;
 
   const [layoutSpring] = useSpring(() => ({
     delay: 1250,
     from: {
-      x: (Math.random() * width / 2) + 100,
-      y: (Math.random() * 75) + 50,
+      x: startX,
+      y: startY,
       rotate: (index % 2 === 0 ? -rotation : rotation),
       scale: 1.8,
-      zIndex: Math.floor((Math.random() * 20)),
+      zIndex: Math.floor((Math.random() * 20)) + 2,
     },
     to: {
       x: dimensions.INITIAL_X,
