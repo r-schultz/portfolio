@@ -21,6 +21,14 @@
   padding: 8px 0;
   overflow: auto;
   width: 218px;
+  /*FireFox*/
+  scrollbar-width: none;
+  /*IE10+*/
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  &::-webkit-scrollbar {
+    /*Chrome, Safari, Edge*/
+    display: none;
+  }
 
   &.in-flow {
     position: relative;
