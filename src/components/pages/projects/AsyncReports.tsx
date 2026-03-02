@@ -6,6 +6,7 @@ import asyncEmailThumb from '@/assets/sq_async-email_thumb.jpg';
 import ProjectImages from './ProjectImages';
 import RoR from "@/components/icons/RoR";
 import AWS from "@/components/icons/AWS";
+import Lambda from "@/components/icons/Lambda";
 
 export default function SalesTrends() {
   const images = [{
@@ -43,6 +44,7 @@ export default function SalesTrends() {
           <ul className='tech-list'>
             <li><RoR /></li>
             <li><AWS /></li>
+            <li><Lambda /></li>
           </ul>
         </figure>
       </section>

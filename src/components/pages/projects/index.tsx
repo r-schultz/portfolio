@@ -11,10 +11,11 @@ import AppleReports from './AppleReports';
 import AsyncReports from './AsyncReports';
 import AudienceBuilder from './AudienceBuilder';
 import InstallmentsTools from './InstallmentsTools';
+import ReportingUI from './ReportingUI';
+import SalesSummaryEmail from './SalesSummaryEmail';
 import SnapshotEmail from './SnapshotEmail';
 import SquareInstallments from './SquareInstallments';
 import SquarePrint from './SquarePrint';
-import SalesTrends from './SalesTrends';
 
 interface ProjectImage {
   src: string;
@@ -36,15 +37,28 @@ export interface Project {
 
 export default function projects(): Project[] {
   return [{
-    title: 'Sales Trends',
+    title: 'Reporting UI',
     company: {
       name: 'Square Inc.',
       industry: 'Finance',
     },
-    description: () => <SalesTrends />,
+    description: () => <ReportingUI />,
     image: {
+      // TODO: replace with real screenshot
       src: salesTrends,
-      alt: 'Sales Trends report UI'
+      alt: 'Square Reporting UI'
+    }
+  }, {
+    title: 'Sales Summary Email',
+    company: {
+      name: 'Square Inc.',
+      industry: 'Finance',
+    },
+    description: () => <SalesSummaryEmail />,
+    image: {
+      // TODO: replace with real screenshot
+      src: snapshotEmail,
+      alt: 'Daily sales summary email'
     }
   }, {
     title: 'Async Reports',
