@@ -4,6 +4,7 @@ import audienceBuilder from '@/assets/rf_audience-builder_thumb.jpg';
 import installments from '@/assets/sq_installments-home_thumb.jpeg';
 import salesTrends from '@/assets/sq_sales-trends_thumb.jpg';
 import snapshotEmail from '@/assets/rf_snapshot-email_thumb.jpg';
+import salesSummaryEmailThumb from '@/assets/sq_sales-summary-email_thumb.jpg';
 import print from '@/assets/sq_print-main_thumb.jpg';
 import tools from '@/assets/sq_installments-tools_thumb.jpg';
 
@@ -56,8 +57,7 @@ export default function projects(): Project[] {
     },
     description: () => <SalesSummaryEmail />,
     image: {
-      // TODO: replace with real screenshot
-      src: snapshotEmail,
+      src: salesSummaryEmailThumb,
       alt: 'Daily sales summary email'
     }
   }, {
